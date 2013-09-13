@@ -1,0 +1,10 @@
+
+<h1>Home of <%=@league.name %></h1>
+
+<%@league.teams.each do |x| %>
+       <h1>Team <%= x.name%></h1>
+       <p><%= Winner.find(x.id)%></p>
+       
+
+<!--  -->
+<% end %> 

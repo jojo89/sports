@@ -1,17 +1,17 @@
 require 'faker'
 
 league = 20.times.map do
-  League.create :name => Faker::Name.first_name,
+  League.create :name => Faker::Address.state,
               :age => "old"
 end
 
 team = 90.times.map do
-  Team.create :name => Faker::Name.first_name,
+  Team.create :name => Faker::Address.city,
               :league_id => rand(1..20)
 end
 
 games = 800.times.map do
-  Game.create :league_id => rand(1..20) 
+  Game.create :league_id => rand(1..20)
 end
 
 # encounter = 800.times.map do
@@ -23,6 +23,9 @@ winner = 800.times.map do
   Winner.create :game_id => rand(1..400),
                    :team_id => rand(1..90)
 end    
+
+
+
 
 
 

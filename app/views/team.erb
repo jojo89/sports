@@ -1,0 +1,23 @@
+
+
+<h1>Home of <%=@team.name %></h1>
+
+<%@team.games.each do |x| %>
+       <h1>Game <%= x.id%></h1>
+      <p>Winner <%= Team.find(x.winner.team_id).name %><p>
+       <p>final: <%= x.score%><p> 
+
+  <% x.teams.each do |b| %>
+      <li><%= b.name %> </li>
+  
+  
+  <% end %>
+
+<% end %> 
+
+
+
+
+
+
+  
