@@ -6,12 +6,14 @@
  <input type="text" id="league" name="team">
  <input type="submit" value= "find">
 </form> 
-</div>
+
 <a href="/create_league" id="create_league">create league </a>
 
 <ul>
   <% League.all.each do |x|%>
   <li></li>
+  <%end%>
  
 
 </ul>
+</div>
