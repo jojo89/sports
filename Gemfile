@@ -16,7 +16,7 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'faker'
 
 group :test do
