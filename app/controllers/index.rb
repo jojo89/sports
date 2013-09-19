@@ -51,38 +51,36 @@ post '/login' do
   end
 end  
 
+
+
 post "/money" do
-  
+
 Stripe.api_key = "sk_test_0wVyuunq8EEh5VuiRdx0yRKg"
 
-# Get the credit card details submitted by the form
-token = params[:stripeToken]
+@manager = Manager.find(session[:id])
+  if @manager.customer_id == nil
+    token = params[:stripeToken]
+    customer = Stripe::Customer.create(
+      :card => token,
+      :description => "payinguser@example.com"
+    )
+     @manager.update_attributes(customer_id: customer.id)
+     
+  end
 
-# Create a Customer
-customer = Stripe::Customer.create(
-  :card => token,
-  :description => "payinguser@example.com"
-)
 
-# Charge the Customer instead of the card
-Stripe::Charge.create(
-    :amount => 1000, # in cents
-    :currency => "usd",
-    :customer => customer.id
-)
+  customer_id = @manager.customer_id
+  p customer_id
 
-# Save the customer ID in your database so you can use it later
-save_stripe_customer_id(user, customer.id)
 
-# Later...
-customer_id = get_stripe_customer_id(user)
+  # Charge the Customer instead of the card
+  Stripe::Charge.create(
+      :amount => 1000000000, # in cents
+      :currency => "usd",
+      :customer => customer_id)
 
-Stripe::Charge.create(
-  :amount   => 1500, # $15.00 this time
-  :currency => "usd",
-  :customer => customer_id
-)
-end  
+   redirect "/"
+end
 
 
 
