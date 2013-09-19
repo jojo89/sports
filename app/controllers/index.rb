@@ -8,6 +8,16 @@ get '/league/:id' do
   erb :league
 end  
 
+get "/create_league" do
+   erb :create_league 
+end
+
+get "/account/:id" do
+  @manager=Manager.find(params[:id])
+
+  
+end  
+
 post '/search' do
   p params[:league]
   p params[:team]
@@ -18,9 +28,23 @@ post '/search' do
 
 end  
 
-get "/create_league" do
-   erb :create_league 
-end
+post '/login' do
+  @manager= Manager.find_by_email(params[:manager][:email])
+  if @manager
+    p @manager
+    @real = Manager.authenticate(params[:manager][:email],params[:manager][:password])
+    if @real
+      @real.id = session[:id]
+        redirect "/account/#{@real.id}"
+    else
+        redirect "/"
+    end    
+  else
+    redirect "/"
+  end
+end  
+
+
 
 
 post "/create_league" do

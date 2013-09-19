@@ -1,19 +1,27 @@
 
-
+<div class="container">
 <h1>Home of <%=@team.name %></h1>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Score</th>
+    <th>Home</th>
+    <th>Away</th>
+    <th>Winner</th>
+  </tr>  
+  <tr>
+    <%@team.games.each do |g| %>
+    <td><%= g.day%></td>
+    <td><%=g.score%></td>
+    <td><%=g.teams.first.name%></td>
+    <td><%=g.teams.second.name%></td>
+    <td><%= Team.find(g.winner.first.team_id).name%></td>
+    <%end%>
+  </tr>
 
-<%@team.games.each do |x| %>
-       <h1>Game <%= x.id%></h1>
-      <p>Winner <%= Team.find(x.winner.team_id).name %><p>
-       <p>final: <%= x.score%><p> 
+</table>  
+</div>
 
-  <% x.teams.each do |b| %>
-      <li><%= b.name %> </li>
-  
-  
-  <% end %>
-
-<% end %> 
 
 
 
