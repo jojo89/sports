@@ -15,7 +15,13 @@ end
 get "/account/:id" do
   @manager=Manager.find(params[:id])
 
+  erb :manager
   
+end  
+
+get '/league/:id' do
+  @league = League.find(params[:id])
+  erb :league
 end  
 
 post '/search' do
@@ -34,8 +40,9 @@ post '/login' do
     p @manager
     @real = Manager.authenticate(params[:manager][:email],params[:manager][:password])
     if @real
-      @real.id = session[:id]
-        redirect "/account/#{@real.id}"
+      p @real.id
+      session[:id] = @real.id  
+        redirect "/account/#{session[:id]}"
     else
         redirect "/"
     end    
