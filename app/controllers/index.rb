@@ -55,6 +55,9 @@ end
 
 
 post "/create_league" do
-   @league =League.create(params[:league])
+
+   @league =League.new(params[:league])
+   @league.manager_id = session[:id]
+   @league.save
    redirect to "/league/#{@league.id}"
 end

@@ -1,3 +1,5 @@
+
+<div class="container">
 <h1>Welcome <%= @manager.username%></h1>
 
 <ul>
@@ -5,3 +7,5 @@
   <li><a href="/league/<%= l.id%>"><%= l.name%></a></li>
   <%end%>
 </ul>
+<a href="/create_league" id="create_league">create league </a>
+</div>
