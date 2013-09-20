@@ -2,11 +2,19 @@
 
 <h1><%=@league.name %></h1>
 
+<h3>Teams</h3>
+<ul>
 <%@league.teams.each do |x| %>
-       <h1>Team <%= x.name%></h1>
-       <p><%= Winner.find(x.id)%></p>
-       
+       <li> <%= x.name%></li>
+<% end %>
+</ul> 
 
-<!--  -->
-<% end %> 
+<ul>
+<%@games.each do |x| %>
+       <li> <%= x.day%>,<%= x.score%>,<%= x.teams.first.name%></li>
+<% end %>
+</ul> 
+
+
+
 </div>
