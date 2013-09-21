@@ -5,7 +5,7 @@ end
 
 get '/league/:id' do
   @league = League.find(params[:id])
-  @games =@league.games.order("day").limit(10)
+  @games =@league.games.limit(10).order('day')
   erb :league
 end  
 
