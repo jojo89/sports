@@ -1,6 +1,7 @@
+<%= erb :_navbar%>
 <div class="container">
-  <h1>Welcome to Sports!</h1>
-  <p>Hello, world!</p>
+  <h1>Search Leagues</h1>
+ 
 <form form id="search" action="/search" method="POST">  
  <input type="text" id="league" name="league">
  <input type="text" id="league" name="team">
@@ -12,12 +13,8 @@
 
 
 
-<h2>Manager Login</h2>
 
-<form form id="login" action="/login" method="POST">  
- <label>Email<input type="text" id="league" name="manager[email]"></label>
- <label>Password<input type="text" id="league" name="manager[password]"></label>
- <input type="submit" value= "find">
-</form>
 
 </div>
+
+

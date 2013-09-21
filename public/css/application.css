@@ -1,9 +1,70 @@
+
+
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 20px 20px 20px 20px;
+  border: none;
+  border-radius:5px;
 }
 th {
   text-align: left;
 }
+body{
+background-image:url('http://www.dream-wallpaper.com/free-wallpaper/nature-wallpaper/grass-football-pitches-wallpaper/1920x1200/free-wallpaper-8.jpg');
+
+}
+h1,h2{
+  color:white;
+}
+  
+.navbar {
+height: 53px;
+width: 100%;
+line-height: 38px;
+background-color: white;
+position: fixed;
+top: 0px;
+}
+
+.navbar h1{
+ color: rgb(27, 128, 27);
+ padding-left: 38px;
+ display: inline;
+}  
+
+#manager{
+  border-radius: 9px;
+  background-color: rgb(27, 128, 27);
+}
+
+
+
+
+.signup {
+  margin: 0px auto;
+  float:left;
+  padding:20px 20px 20px 20px;
+  width: 600px ;
+  border:none ;
+  border-radius:5px;
+  background-color: white
+}
+
+.login {
+display: inline;
+float:right;
+margin-right: 40px;
+margin-top: 2px;
+}
+
+.navbar h2{
+ color: rgb(27, 128, 27);
+ padding-left: 38px;
+ display: inline;
+ margin-left: 695px;
+} 
+
+
+
+
