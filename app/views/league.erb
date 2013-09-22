@@ -12,7 +12,12 @@
 
 <ul>
 <%@games.each do |x| %>
-       <li> <%= x.day%>,<%= x.score%>,<%= x.teams.first.name%></li>
+       <li> <%= x.day%>,<%= x.league_id%>,<%= x.teams.first.name%> vs <%if x.teams.second==nil%>
+       <%= nil %>
+       <%else%>
+       <%= x.teams.second.name %>
+       <%end%>
+       </li>
 <% end %>
 </ul> 
 

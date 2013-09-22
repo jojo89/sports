@@ -18,7 +18,7 @@ end
 5.times.map do
   #create 25 teams
   @team =Team.create(:name => Faker::Address.city,:league_id => 1)
-  #create 10 games for each team
+  # create 10 games for each team
   10.times.map do
 
       @date ="#{rand(12)}/#{rand(30)}/2013"
@@ -32,9 +32,9 @@ end
       # @ga.each do |g|
       #   Team.find(rand(1..25)) << g
       # end
-      10.times.map do
-        Winner.create(team_id: @team.id, game_id: @game.id)
-      end  
+      # 10.times.map do
+      #   Winner.create(team_id: @team.id, game_id: @game.id)
+      # end  
 
       
     end   

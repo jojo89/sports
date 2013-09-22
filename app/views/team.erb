@@ -4,17 +4,19 @@
 <table>
   <tr>
     <th>Date</th>
-    <th>Score</th>
-    <th>Home</th>
-    <th>Away</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Home Score<th>
+    <th>Away Score</th>
     <th>Winner</th>
   </tr>  
   <tr>
     <%@team.games.each do |g| %>
     <td><%= g.day%></td>
-    <td><%=g.score%></td>
-    <td><%=g.teams.first.name%></td>
-    <td><%=g.teams.second.name%></td>
+    <td><%= g.teams.first.name%></td>
+    <td><%= g.teams.second.name%></td>
+    <td><%=g.scores.first.amount%></td>
+    <td><%=g.scores.second.amount%></td>
     <td><%= Team.find(g.winner.first.team_id).name%></td>
     <%end%>
   </tr>
