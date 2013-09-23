@@ -14,9 +14,22 @@
     <%@team.games.each do |g| %>
     <td><%= g.day%></td>
     <td><%= g.teams.first.name%></td>
-    <td><%= g.teams.second.name%></td>
+    <td>
+    <% if g.teams.second == nil%>
+      <%= nil %> 
+    <% else %>
+      <%=g.teams.second.name %>
+    <%end%>  
+    </td>
     <td><%=g.scores.first.amount%></td>
-    <td><%=g.scores.second.amount%></td>
+    
+    <td>
+    <% if g.teams.second == nil%>
+      <%= nil %> 
+    <% else %>
+      <%=g.scores.second.amount %>
+    <%end%>  
+    </td>
     <td><%= Team.find(g.winner.first.team_id).name%></td>
     <%end%>
   </tr>
@@ -27,7 +40,12 @@
 
 
 
-
+<%if x.teams.second==nil%>
+       <%= nil %>
+       <%else%>
+       <%= x.teams.second.name %>
+       <%end%>
+       </li>
 
 
   

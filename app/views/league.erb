@@ -6,13 +6,13 @@
 <h3>Teams</h3>
 <ul>
 <%@league.teams.each do |x| %>
-       <li> <%= x.name%></li>
+       <li><a href="/team/<%=x.id%>"> <%= x.name%></a></li>
 <% end %>
 </ul> 
 
 <ul>
 <%@games.each do |x| %>
-       <li> <%= x.day%>,<%= x.league_id%>,<%= x.teams.first.name%> vs <%if x.teams.second==nil%>
+       <li> <%= x.day%>,<%= x.teams.first.name%> vs <%if x.teams.second==nil%>
        <%= nil %>
        <%else%>
        <%= x.teams.second.name %>

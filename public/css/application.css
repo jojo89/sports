@@ -1,11 +1,13 @@
 
 
 .container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 20px 20px 20px 20px;
-  border: none;
-  border-radius:5px;
+margin: 67px auto;
+width: 600px;
+padding: 20px 20px 20px 20px;
+border: none;
+border-radius: 5px;
+background-color: #FFF;
+opacity: 0.8;
 }
 th {
   text-align: left;
@@ -15,7 +17,7 @@ background-image:url('http://www.dream-wallpaper.com/free-wallpaper/nature-wallp
 
 }
 h1,h2{
-  color:white;
+  color:rgb(27, 128, 27);
 }
   
 .navbar {

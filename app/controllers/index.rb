@@ -18,7 +18,13 @@ get "/account/:id" do
 
   erb :manager
   
-end  
+end
+
+get '/team/:id' do
+  @team = Team.find(params[:id])
+  erb :team
+end 
+
 
 get '/league/:id' do
   @league = League.find(params[:id])
