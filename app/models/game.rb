@@ -1,7 +1,10 @@
 class Game < ActiveRecord::Base
   # Remember to create a migration!
   
-  has_and_belongs_to_many :teams
+  
+  belongs_to :home_team, class_name: "Team"
+  belongs_to :away_team, class_name: "Team"
+  # has_and_belongs_to_many :teams
   has_many :scores
 
   # def winner
