@@ -1,45 +1,61 @@
 
+@games = Game.all
 
-manager = 1.times.map do
-  Manager.create(username: Faker::Name.name, 
-             email: Faker::Internet.email,
-             password: Faker::Lorem.words.first)
-end
-
-
-league = 1.times.map do
-  League.create(name: Faker::Address.state,
-              age: "old",
-              manager_id: 1)
-end
+@games.each do |g|
+    Score.create(team_id: g.home_team_id, game_id: g.id, amount: rand(1..5))
+    Score.create(team_id: g.away_team_id, game_id: g.id, amount: rand(1..5))
+end    
 
 
 
-5.times.map do
-  #create 25 teams
-  @team =Team.create(:name => Faker::Address.city,:league_id => 1)
-  # create 10 games for each team
-  10.times.map do
 
-      @date ="#{rand(12)}/#{rand(30)}/2013"
-      @game =Game.create(league_id: @team.league_id,score: "1-12",day: @date)
 
-      @team.games << @game
+
+
+
+# manager = 1.times.map do
+#   Manager.create(username: Faker::Name.name, 
+#              email: Faker::Internet.email,
+#              password: Faker::Lorem.words.first)
+# end
+
+
+# league = 1.times.map do
+#   League.create(name: Faker::Address.state,
+#               age: "old",
+#               manager_id: 1)
+# end
+
+
+
+# 5.times.map do
+#   #create 25 teams
+#   @team =Team.create(:name => Faker::Address.city,:league_id => 1)
+#   # create 10 games for each team
+#   3.times.map do
+
+#       @date ="#{rand(12)}/#{rand(30)}/2013"
+#       @game =Game.create(league_id: @team.league_id, home_team_id: @team.id, away_team_id: rand(2..5), day: @date)
+
+      
+ 
 
 
 
       
-      # @ga.each do |g|
-      #   Team.find(rand(1..25)) << g
-      # end
-      # 10.times.map do
-      #   Winner.create(team_id: @team.id, game_id: @game.id)
-      # end  
+#       # @ga.each do |g|
+#       #   Team.find(rand(1..25)) << g
+#       # end
+#       # 10.times.map do
+#       #   Winner.create(team_id: @team.id, game_id: @game.id)
+#       # end  
 
       
-    end   
+#     end   
 
-end
+  
+
+# end
 
 
 # team2 = 25.times.map do

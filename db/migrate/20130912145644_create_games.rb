@@ -4,7 +4,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :home_team_id
       t.integer :away_team_id
       t.belongs_to :league
-      t.string :score
+      
       t.timestamps
     end  
   end
