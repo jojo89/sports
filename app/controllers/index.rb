@@ -5,7 +5,10 @@ end
 
 get '/league/:id' do
   @league = League.find(params[:id])
-  @games =@league.games.limit(10).order('day')
+   hgs=@league.home_games.limit(10).order('day') 
+   ags=@league.home_games.limit(10).order('day')
+   @games = ags + hgs
+   p @games.length 
   erb :league
 end  
 
@@ -22,6 +25,7 @@ end
 
 get '/team/:id' do
   @team = Team.find(params[:id])
+  p @games = @team.home_games + @team.away_games
   erb :team
 end 
 

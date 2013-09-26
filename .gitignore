@@ -24,4 +24,6 @@ chromedriver.log
 .tddium*
 bin/
 .env
-*.swp
+*.swp 
+
+    <%= x.day%>,<%= x.home_team.name%><% x.away_team.name%> <%@games.each do |x| %>

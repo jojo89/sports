@@ -10,16 +10,25 @@
 <% end %>
 </ul> 
 
-<ul>
+
+<table>
+  <tr>  
+    <th>date</th>
+    <th>home team</th>
+    <th>away team</th>
+    <th>score</th>
+    <th>winner</th>
+  </tr>    
 <%@games.each do |x| %>
-       <li> <%= x.day%>,<%= x.teams.first.name%> vs <%if x.teams.second==nil%>
-       <%= nil %>
-       <%else%>
-       <%= x.teams.second.name %>
-       <%end%>
-       </li>
-<% end %>
-</ul> 
+  <tr>
+    <td><%= x.day%></td>
+    <td> <%= x.home_team.name%></td>
+    <td> <% x.away_team.name%></td>
+    <td><%=x.score_array[0]%>-<%=x.score_array[1]%></td>
+    <td><%= x.victory%></td>
+  </tr> 
+<%end%>
+</table>
 
 
 

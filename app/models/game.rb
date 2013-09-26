@@ -7,19 +7,28 @@ class Game < ActiveRecord::Base
   # has_and_belongs_to_many :teams
   has_many :scores
 
-  # def winner
-  #   @scores=self.scores
-  #   winner= 0
-  #   @scores.each do |t|  
-  #     if t.amount > winner
-  #       winner= t.team.id
-  #     else
-  #       winner= "tie"
-  #     end
+  def score_array
+    scores=[]
+    self.scores.each do |s|  
+      scores << s.amount 
+    end
+    scores
+  end  
+
+  def victory
+    @scores=self.scores
+    count= 0
+    winner= nil
+    @scores.each do |t|  
+      if t.amount >= count
+        winner= t.team.name
+      else
+        winner= "tie"
+      end
       
-  #   end
-  #   winner
-  # end  
+    end
+    winner
+  end  
   
 
 end

@@ -1,51 +1,27 @@
 <%= erb :_navbar%>
 <div class="container">
 <h1>Home of <%=@team.name %></h1>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Home Team</th>
-    <th>Away Team</th>
-    <th>Home Score<th>
-    <th>Away Score</th>
-    <th>Winner</th>
-  </tr>  
-  <tr>
-    <%@team.games.each do |g| %>
-    <td><%= g.day%></td>
-    <td><%= g.teams.first.name%></td>
-    <td>
-    <% if g.teams.second == nil%>
-      <%= nil %> 
-    <% else %>
-      <%=g.teams.second.name %>
-    <%end%>  
-    </td>
-    <td><%=g.scores.first.amount%></td>
-    
-    <td>
-    <% if g.teams.second == nil%>
-      <%= nil %> 
-    <% else %>
-      <%=g.scores.second.amount %>
-    <%end%>  
-    </td>
-    <td><%= Team.find(g.winner.first.team_id).name%></td>
-    <%end%>
-  </tr>
 
-</table>  
+<table>
+  <tr>  
+    <th>date</th>
+    <th>home team</th>
+    <th>away team</th>
+    <th>score</th>
+    <th>winner</th>
+  </tr>    
+<%@games.each do |x| %>
+  <tr>
+    <td><%= x.day%></td>
+    <td> <%= x.home_team.name%></td>
+    <td> <% x.away_team.name%></td>
+    <td><%=x.score_array[0]%>-<%=x.score_array[1]%></td>
+    <td><%= x.victory%></td>
+  </tr> 
+<%end%>
+</table>
 </div>
 
 
 
 
-<%if x.teams.second==nil%>
-       <%= nil %>
-       <%else%>
-       <%= x.teams.second.name %>
-       <%end%>
-       </li>
-
-
-  
