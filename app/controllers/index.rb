@@ -3,6 +3,7 @@ get '/' do
   erb :index
 end
 
+
 get '/league/:id' do
   @league = League.find(params[:id])
    hgs=@league.home_games.limit(10).order('day') 
@@ -10,6 +11,11 @@ get '/league/:id' do
    @games = ags + hgs
    p @games.length 
   erb :league
+end
+
+get "/create_team/league/:id" do
+  @league = League.find(params[:id])
+  erb :create_team
 end  
 
 get "/create_league" do
@@ -92,6 +98,18 @@ Stripe.api_key = "sk_test_0wVyuunq8EEh5VuiRdx0yRKg"
 
    redirect "/"
 end
+
+
+
+post "/create_team" do 
+  p params
+  Team.create(params[:team])
+
+end
+
+
+
+
 
 
 
