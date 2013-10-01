@@ -16,11 +16,14 @@ end
 get "/create_team/league/:id" do
   @league = League.find(params[:id])
   erb :create_team
+
 end  
 
 get "/create_league" do
    erb :create_league 
 end
+
+get "/create"
 
 get "/account/:id" do
   @manager=Manager.find(params[:id])
@@ -104,7 +107,7 @@ end
 post "/create_team" do 
   p params
   Team.create(params[:team])
-
+  redirect to "/league/#{params[:team][:league_id]}"
 end
 
 
